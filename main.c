@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:28:48 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 10:53:00 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:15:39 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ void	error_mess(void)
 
 int main(int ac, char **av)
 {
+	t_fractol	fractol;
+
 	if ((ac == 2 && !ft_strcmp(av[1], "mandelbrot")) || (ac == 4 && !ft_strcmp(av[1], "julia")))
 	{
-		
+		fractol.name = av[1];
+		fractol_init(&fractol);
+		data_init(&fractol);
+		fractol_render(&fractol);
+		mlx_loop(fractol.mlx_connection);
 	}
 	else
 		error_mess();

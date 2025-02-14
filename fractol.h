@@ -6,12 +6,46 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:23:28 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 10:58:03 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:15:44 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
+
+# define WIDTH 800
+# define HEIGHT 800
+
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
+# define RED 0xFF0000
+# define GREEN 0x00FF00
+# define BLUE 0x0000FF
+# define YELLOW 0xFFFF00
+# define PURPLE 0xFF00FF
+# define CYAN 0x00FFFF
+# define GRAY 0x808080
+# define ORANGE 0xFFA500
+# define HOT_PINK 0xFF69B4
+# define ELECTRIC_BLUE 0x00FF9F
+# define ACID_GREEN 0x7FFF00
+# define NEON_PURPLE 0x9400D3
+# define ELECTRIC_LIME 0xCCFF00
+# define PSYCHEDELIC_PURPLE 0xD300C9
+# define PLASMA_BLUE 0x00FFEF
+# define LASER_RED 0xFF003C
+# define UV_PURPLE 0x9B30FF
+# define TOXIC_GREEN 0x39FF14
+# define RADIOACTIVE_YELLOW 0xFFFF33
+# define COSMIC_PURPLE 0x6B3FA0
+# define NEON_ORANGE 0xFF6600
+# define ALIEN_GREEN 0x00FF8F
+# define SYNTHWAVE_PINK 0xFF10F0
+# define CYBER_CYAN 0x00FFFF
+# define PLASMA_MAGENTA 0xFF00CC
+# define VAPORWAVE_PURPLE 0xB19CD9
+# define DIGITAL_LIME 0xBFFF00
+# define QUANTUM_TURQUOISE 0x40E0D0
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -28,15 +62,33 @@ typedef struct	s_data
 	int		endian;
 }				t_data;
 
-typedef struct	s_fracol
+typedef struct	s_fractol
 {
-	
-	t_data	*img;
+	char	*name;
+	void	*mlx_connection;
+	void	*mlx_win;
+	t_data	img;
+	int		iterations;
+	int		escape_point;
 }				t_fractol;
 
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putendl_fd(char *s, int fd);
-int		ft_strcmp(const char *s1, const char *s2);
+typedef struct	s_complexe
+{
+	double	x;
+	double	y;
+}				t_complexe;
+
+t_complexe	square_complex(t_complexe z);
+void		data_init(t_fractol *fractol);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putendl_fd(char *s, int fd);
+void		fractol_init(t_fractol	*fractol);
+void		fractol_render(t_fractol *fractol);
+t_complexe	sum_complexe(t_complexe z, t_complexe c);
+int			ft_strcmp(const char *s1, const char *s2);
+void		handel_pixel(int x, int y, t_fractol *fractol);
+void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+double		scale_value(int pixel,double min, double max, int dimension);
 
 #endif
