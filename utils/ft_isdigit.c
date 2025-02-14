@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maths_utils.c                                      :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 15:42:28 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:48:36 by aychikhi         ###   ########.fr       */
+/*   Created: 2025/02/14 18:38:09 by aychikhi          #+#    #+#             */
+/*   Updated: 2025/02/14 18:38:24 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-double	scale_value(int pixel, double min, double max, int dimension)
+int	ft_isdigit(int c)
 {
-	return (min + (max - min) * ((double)pixel / (double)dimension));
-}
-
-t_complexe	sum_complexe(t_complexe z, t_complexe c)
-{
-	t_complexe	res;
-
-	res.x = z.x + c.x;
-	res.y = z.y + c.y;
-	return (res);
-}
-
-t_complexe	square_complex(t_complexe z)
-{
-	t_complexe	res;
-
-	res.x = (z.x * z.x) - (z.y * z.y);
-	res.y = z.x * 2 * z.y;
-	return (res);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

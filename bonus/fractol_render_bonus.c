@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_render.c                                   :+:      :+:    :+:   */
+/*   fractol_render_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:22:43 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:49:48 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:15:28 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 void	mandelbrot_or_julia(t_complexe *z, t_complexe *c, t_fractol *fractol)
 {
-	if (!ft_strcmp(fractol->name, "mandelbrot"))
-	{
-		c->x = z->x;
-		c->y = z->y;
-	}
-	else
+	if (!ft_strcmp(fractol->name, "julia"))
 	{
 		c->x = fractol->julia_x;
 		c->y = fractol->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
 	}
 }
 
@@ -41,20 +41,24 @@ void	handel_pixel(int x, int y, t_fractol *fractol)
 	int			i;
 	int			color;
 
-	i = 0;
-	z.x = scale_value(x, -2, 2, WIDTH) * fractol->zoom;
-	z.y = scale_value(y, 2, -2, HEIGHT) * fractol->zoom;
+	i = -1;
+	z.x = scale_value(x, -2, 2, WIDTH) * fractol->zoom + fractol->shift_x;
+	z.y = scale_value(y, 2, -2, HEIGHT) * fractol->zoom + fractol->shift_y;
 	mandelbrot_or_julia(&z, &c, fractol);
-	while (i < fractol->iterations)
+	while (++i < fractol->iterations)
 	{
+		if (!ft_strcmp(fractol->name, "burning_ship"))
+		{
+			z.x = fabs(z.x);
+			z.y = -fabs(z.y);
+		}
 		z = sum_complexe(square_complex(z), c);
-		if (z.x * z.x + z.y * z.y > fractol->escape_point)
+		if ((z.x * z.x) + (z.y * z.y) > fractol->escape_point)
 		{
 			color = scale_value(i, BLACK, WHITE, fractol->iterations);
 			my_mlx_pixel_put(&fractol->img, x, y, color);
 			return ;
 		}
-		i++;
 	}
 	my_mlx_pixel_put(&fractol->img, x, y, BLACK);
 }

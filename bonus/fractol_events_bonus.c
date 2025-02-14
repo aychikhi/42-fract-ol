@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_events.c                                   :+:      :+:    :+:   */
+/*   fractol_events_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:51:33 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:50:12 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:13:48 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,35 @@ int	key_fun(int key, t_fractol *fractol)
 		mlx_destroy_window(fractol->mlx_connection, fractol->mlx_win);
 		exit(0);
 	}
+	else if (key == UP_KEY)
+		fractol->shift_y -= (0.5 * fractol->zoom);
+	else if (key == DOWN_KEY)
+		fractol->shift_y += (0.5 * fractol->zoom);
+	else if (key == LEFT_KEY)
+		fractol->shift_x += (0.5 * fractol->zoom);
+	else if (key == RIGHT_KEY)
+		fractol->shift_x -= (0.5 * fractol->zoom);
+	else if (key == PLUS_KEY)
+		fractol->iterations += 10;
+	else if (key == MINUS_KEY)
+		fractol->iterations -= 10;
+	fractol_render(fractol);
 	return (0);
 }
 
-int	mouse_fun(int key, int x, int y, t_fractol *fractol)
+int	mouse_fun(int button, int x, int y, t_fractol *fractol)
 {
-	x = (int)x;
-	y = (int)y;
-	if (key == MOUSE_BUTTON_UP)
+	double			mouse_x;
+	double			mouse_y;
+
+	mouse_x = scale_value(x, -2, 2, WIDTH) * fractol->zoom + fractol->shift_x;
+	mouse_y = scale_value(y, 2, -2, HEIGHT) * fractol->zoom + fractol->shift_y;
+	if (button == 4)
 		fractol->zoom *= 0.9;
-	else if (key == MOUSE_BUTTON_DOWN)
+	else if (button == 5)
 		fractol->zoom *= 1.1;
+	fractol->shift_x = mouse_x - scale_value(x, -2, 2, WIDTH) * fractol->zoom;
+	fractol->shift_y = mouse_y - scale_value(y, 2, -2, HEIGHT) * fractol->zoom;
 	fractol_render(fractol);
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_init.c                                     :+:      :+:    :+:   */
+/*   fractol_init_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:04:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:48:47 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:02:13 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	data_init(t_fractol *fractol)
 	fractol->iterations = 42;
 	fractol->escape_point = 4;
 	fractol->zoom = 1.0;
+	fractol->shift_x = 0.0;
+	fractol->shift_y = 0.0;
 }
 
 void	fractol_init(t_fractol *fractol)

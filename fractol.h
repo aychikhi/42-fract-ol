@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:23:28 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:30:44 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:48:45 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 # include <math.h>
 # include <mlx.h>
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*img_ptr;
 	char	*addr;
@@ -72,7 +72,7 @@ typedef struct	s_data
 	int		endian;
 }				t_data;
 
-typedef struct	s_fractol
+typedef struct s_fractol
 {
 	char	*name;
 	void	*mlx_connection;
@@ -82,15 +82,21 @@ typedef struct	s_fractol
 	int		escape_point;
 	double	julia_x;
 	double	julia_y;
+	double	shift_x;
+	double	shift_y;
 	double	zoom;
 }				t_fractol;
 
-typedef struct	s_complexe
+typedef struct s_complexe
 {
 	double	x;
 	double	y;
 }				t_complexe;
 
+void		error_mess(void);
+void		error_mess2(void);
+int			ft_isspace(int c);
+int			ft_isdigit(int c);
 double		ft_atod(char *str);
 t_complexe	square_complex(t_complexe z);
 void		data_init(t_fractol *fractol);
@@ -107,7 +113,8 @@ int			ft_strcmp(const char *s1, const char *s2);
 void		handel_pixel(int x, int y, t_fractol *fractol);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int			mouse_fun(int button, int x, int y, t_fractol *fractol);
-double		scale_value(int pixel,double min, double max, int dimension);
-void		mandelbrot_or_julia(t_complexe *z, t_complexe *c, t_fractol *fractol);
+double		scale_value(int pixel, double min, double max, int dimension);
+void		mandelbrot_or_julia(t_complexe *z, t_complexe *c, 
+				t_fractol *fractol);
 
 #endif
