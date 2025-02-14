@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:22:43 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 16:20:51 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:27:08 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)(offset + data->addr) = color;
 }
 
+void	mandelbrot_or_julia(t_complexe *z, t_complexe *c, t_fractol *fractol)
+{
+	if (!ft_strcmp(fractol->name, "mandelbrot"))
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+	else
+	{
+		c->x = fractol->julia_x;
+		c->y = fractol->julia_y;
+	}
+}
+
 void	handel_pixel(int x, int y, t_fractol *fractol)
 {
 	t_complexe	z;
@@ -28,10 +42,9 @@ void	handel_pixel(int x, int y, t_fractol *fractol)
 	int			color;
 	
 	i = 0;
-	c.x = scale_value(x, -2, 2, WIDTH);
-	c.y = scale_value(y, 2, -2, HEIGHT);
-	z.x = 0;
-	z.y = 0;
+	z.x = scale_value(x, -2, 2, WIDTH) * fractol->zoom;
+	z.y = scale_value(y, 2, -2, HEIGHT) * fractol->zoom;
+	mandelbrot_or_julia(&z, &c, fractol);
 	while (i < fractol->iterations)
 	{
 		z = sum_complexe(square_complex(z), c);

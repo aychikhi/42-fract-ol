@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:23:28 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 16:15:44 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:30:44 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # define WIDTH 800
 # define HEIGHT 800
+
+# define ESC_KEY 53
+# define UP_KEY 126
+# define DOWN_KEY 125
+# define LEFT_KEY 123
+# define RIGHT_KEY 124
+# define PLUS_KEY 69
+# define MINUS_KEY 78
+# define MOUSE_BUTTON_UP 5
+# define MOUSE_BUTTON_DOWN 4
 
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
@@ -70,6 +80,9 @@ typedef struct	s_fractol
 	t_data	img;
 	int		iterations;
 	int		escape_point;
+	double	julia_x;
+	double	julia_y;
+	double	zoom;
 }				t_fractol;
 
 typedef struct	s_complexe
@@ -78,17 +91,23 @@ typedef struct	s_complexe
 	double	y;
 }				t_complexe;
 
+double		ft_atod(char *str);
 t_complexe	square_complex(t_complexe z);
 void		data_init(t_fractol *fractol);
 void		ft_putstr_fd(char *s, int fd);
+int			close_win(t_fractol *fractol);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
+void		events_init(t_fractol *fractol);
 void		fractol_init(t_fractol	*fractol);
 void		fractol_render(t_fractol *fractol);
+int			key_fun(int key, t_fractol *fractol);
 t_complexe	sum_complexe(t_complexe z, t_complexe c);
 int			ft_strcmp(const char *s1, const char *s2);
 void		handel_pixel(int x, int y, t_fractol *fractol);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int			mouse_fun(int button, int x, int y, t_fractol *fractol);
 double		scale_value(int pixel,double min, double max, int dimension);
+void		mandelbrot_or_julia(t_complexe *z, t_complexe *c, t_fractol *fractol);
 
 #endif

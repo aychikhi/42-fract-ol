@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:28:48 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 16:15:39 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:47:09 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,13 @@ int main(int ac, char **av)
 
 	if ((ac == 2 && !ft_strcmp(av[1], "mandelbrot")) || (ac == 4 && !ft_strcmp(av[1], "julia")))
 	{
+		if (!ft_strcmp(av[1], "julia"))
+		{
+			fractol.julia_x = ft_atod(av[2]);
+			fractol.julia_y = ft_atod(av[3]);
+		}
 		fractol.name = av[1];
 		fractol_init(&fractol);
-		data_init(&fractol);
 		fractol_render(&fractol);
 		mlx_loop(fractol.mlx_connection);
 	}
