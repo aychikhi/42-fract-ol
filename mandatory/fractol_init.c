@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:04:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:48:47 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:53:21 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	fractol_init(t_fractol *fractol)
 			HEIGHT);
 	if (!fractol->img.img_ptr)
 	{
-		mlx_destroy_image(fractol->mlx_connection, fractol->img.img_ptr);
 		mlx_destroy_window(fractol->mlx_connection, fractol->mlx_win);
+		mlx_destroy_image(fractol->mlx_connection, fractol->img.img_ptr);
 		malloc_error();
 	}
 	fractol->img.addr = mlx_get_data_addr(fractol->img.img_ptr,
