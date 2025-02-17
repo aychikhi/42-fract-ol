@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:51:33 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 11:34:29 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:40:33 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ int	mouse_fun(int button, int x, int y, t_fractol *fractol)
 	double			mouse_x;
 	double			mouse_y;
 
-	mouse_x = scale_value(x, -2, 2, WIDTH) * fractol->zoom ;
-	mouse_y = scale_value(y, 2, -2, HEIGHT) * fractol->zoom ;
+	mouse_x = scale_value(x, -2, 2, WIDTH) * fractol->zoom + fractol->shift_x;
+	mouse_y = scale_value(y, 2, -2, HEIGHT) * fractol->zoom + fractol->shift_y;
 	if (button == MOUSE_BUTTON_DOWN)
 		fractol->zoom *= 0.9;
 	else if (button == MOUSE_BUTTON_UP)
 		fractol->zoom *= 1.1;
-	fractol->shift_x = mouse_x - scale_value(x, -2, 2, WIDTH) * fractol->zoom + fractol->shift_x;
-	fractol->shift_y = mouse_y - scale_value(y, 2, -2, HEIGHT) * fractol->zoom + fractol->shift_y;
+	fractol->shift_x = mouse_x - scale_value(x, -2, 2, WIDTH) * fractol->zoom;
+	fractol->shift_y = mouse_y - scale_value(y, 2, -2, HEIGHT) * fractol->zoom;
 	fractol_render(fractol);
 	return (0);
 }
