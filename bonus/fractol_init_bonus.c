@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 11:04:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 18:02:13 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:34:10 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "fractol_bonus.h"
 
 static void	malloc_error(void)
 {

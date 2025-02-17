@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 13:28:52 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 13:37:54 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:59:40 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	pars1(char *ptr)
 	points(ptr);
 	while (*ptr)
 	{
-		while (ft_isspace(*ptr))
-			ptr++;
 		if ((*ptr == '+' || *ptr == '-') && *(ptr + 1) && ft_isdigit(*(ptr
 					+ 1)))
 			ptr++;
@@ -63,7 +61,5 @@ void	pars1(char *ptr)
 		}
 		else
 			error_mess2();
-		while (ft_isspace(*ptr))
-			ptr++;
 	}
 }

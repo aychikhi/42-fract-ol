@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pars2.c                                            :+:      :+:    :+:   */
+/*   pars1_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 13:29:15 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 13:59:45 by aychikhi         ###   ########.fr       */
+/*   Created: 2025/02/17 13:28:52 by aychikhi          #+#    #+#             */
+/*   Updated: 2025/02/17 17:47:04 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "../bonus/fractol_bonus.h"
 
 static void	points(char *str)
 {
@@ -43,7 +43,7 @@ static void	is_empty(char *str)
 	error_mess2();
 }
 
-void	pars2(char *ptr)
+void	pars1(char *ptr)
 {
 	is_empty(ptr);
 	points(ptr);
@@ -60,10 +60,6 @@ void	pars2(char *ptr)
 				error_mess2();
 		}
 		else
-		{
-			if (*ptr == 'i' && !*(ptr + 1))
-				return ;
 			error_mess2();
-		}
 	}
 }

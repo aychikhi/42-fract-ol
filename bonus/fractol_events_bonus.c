@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:51:33 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 12:40:33 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:34:05 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "fractol_bonus.h"
 
 int	key_fun(int key, t_fractol *fractol)
 {

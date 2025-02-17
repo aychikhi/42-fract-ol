@@ -6,11 +6,11 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 17:35:04 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 13:42:01 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:34:14 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fractol.h"
+#include "fractol_bonus.h"
 
 void	error_mess2(void)
 {

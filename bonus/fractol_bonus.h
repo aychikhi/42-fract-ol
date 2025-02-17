@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 10:23:28 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 16:00:22 by aychikhi         ###   ########.fr       */
+/*   Created: 2025/02/17 17:33:35 by aychikhi          #+#    #+#             */
+/*   Updated: 2025/02/17 17:33:54 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # define WIDTH 800
 # define HEIGHT 800

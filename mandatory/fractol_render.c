@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:22:43 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 12:37:44 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:24:56 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	int	offset;
+	char	*dst;
 
-	offset = y * data->line_length + x * (data->bits_per_pixel / 8);
-	*(unsigned int *)(offset + data->addr) = color;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
 
 void	mandelbrot_or_julia(t_complexe *z, t_complexe *c, t_fractol *fractol)
