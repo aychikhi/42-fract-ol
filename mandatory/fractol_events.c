@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 16:51:33 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 17:50:12 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/16 18:36:33 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	key_fun(int key, t_fractol *fractol)
 
 int	mouse_fun(int key, int x, int y, t_fractol *fractol)
 {
-	x = (int)x;
-	y = (int)y;
+	(void)x;
+	(void)y;
 	if (key == MOUSE_BUTTON_UP)
 		fractol->zoom *= 0.9;
 	else if (key == MOUSE_BUTTON_DOWN)
