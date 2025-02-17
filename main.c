@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:28:48 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/14 20:25:55 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:38:15 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	main(int ac, char **av)
 	{
 		if (!ft_strcmp(av[1], "julia"))
 		{
+			pars1(av[2]);
+			pars2(av[3]);
 			fractol.julia_x = ft_atod(av[2]);
 			fractol.julia_y = ft_atod(av[3]);
 		}

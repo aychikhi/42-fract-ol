@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:23:28 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/16 18:35:51 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:40:53 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@
 # define DIGITAL_LIME 0xBFFF00
 # define QUANTUM_TURQUOISE 0x40E0D0
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
@@ -93,6 +92,8 @@ typedef struct s_complexe
 	double	y;
 }				t_complexe;
 
+void		pars2(char *ptr);
+void		pars1(char *ptr);
 void		error_mess(void);
 void		error_mess2(void);
 int			ft_isspace(int c);
