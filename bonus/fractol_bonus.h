@@ -6,10 +6,9 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:33:35 by aychikhi          #+#    #+#             */
-/*   Updated: 2025/02/17 17:33:54 by aychikhi         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:31:53 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FRACTOL_BONUS_H
 # define FRACTOL_BONUS_H
